@@ -81,7 +81,7 @@ const SettingsKeysPage = (_: RouteComponentProps) => {
                 'nsec': priv_key
             };
 
-            const response = await axios.post('http://localhost:3001/sync-keys', payload);
+            const response = await axios.post('https://chat-backend-v8xf.onrender.com/sync-keys', payload);
             alert(t('Keys Syncronized to DB'));
         } catch (error) {
             console.error('Save failed:', error);

@@ -82,7 +82,7 @@ const VersatilePage = (props: RouteComponentProps) => {
     useEffect(() => {
         const fetchTokens = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/token/all', {
+                const response = await axios.get('https://chat-backend-v8xf.onrender.com/token/all', {
                     params: { npriv: npriv }
                 });
 
@@ -164,7 +164,7 @@ const VersatilePage = (props: RouteComponentProps) => {
         try {
             const payload = { qrCodeUrl };
 
-            const response = await axios.post('http://localhost:3001/token/save', payload);
+            const response = await axios.post('https://chat-backend-v8xf.onrender.com/token/save', payload);
 
             alert(t('Data saved successfully!'));
             window.location.reload();
@@ -184,7 +184,7 @@ const VersatilePage = (props: RouteComponentProps) => {
     const handleDelete = async (token: string) => {
         try {
             const payload = { token, key: npriv };
-            await axios.delete(`http://localhost:3001/token/delete/`, { data: payload });
+            await axios.delete(`https://chat-backend-v8xf.onrender.com/token/delete/`, { data: payload });
 
             alert(t('Token deleted successfully!'));
             window.location.reload();
@@ -197,7 +197,7 @@ const VersatilePage = (props: RouteComponentProps) => {
     // Validate token
     const handleValidateToken = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/token/detail', {
+            const response = await axios.get('https://chat-backend-v8xf.onrender.com/token/detail', {
                 params: { token: tokenToValidate, key: npriv }
             });
 
@@ -217,7 +217,7 @@ const VersatilePage = (props: RouteComponentProps) => {
     // Sign token
     const handleSignToken = async () => {
         try {
-            const response = await axios.post('http://localhost:3001/token/sign', {
+            const response = await axios.post('https://chat-backend-v8xf.onrender.com/token/sign', {
                 token: tokenToValidate,
                 key: npriv
             });
